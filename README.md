@@ -14,3 +14,33 @@ Vue CLI v5.0.8
 ? Where do you prefer placing config for Babel, ESLint, etc.? In dedicated config files
 ```
 
+手机端兼容处理
+
+`npm install postcss-px-to-viewport --save-dev`
+
+`vue.config.js`同级创建`postcss.config.js`文件
+
+配置处理
+
+```javascript
+module.exports = {
+  plugins: {
+    // ...
+    'postcss-px-to-viewport': {
+        // 要转化的单位
+      unitToConvert: 'px',
+        // 设计稿视口宽度
+      viewportWidth: 375,
+        // 转换后保留的精度
+      unitPrecision: 5,
+        // 希望的视口单位
+      viewportUnit: 'vw',
+        // 字体使用的视口单位
+      fontViewportUnit: 'vw',
+    },
+  },
+};
+```
+
+
+
